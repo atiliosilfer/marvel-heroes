@@ -9,5 +9,5 @@ export const LayoutContainer = styled.div`
 export const ContentContainer = styled.div`
   display: grid;
   grid-template-rows: 60px auto;
-  grid-template-columns: 100vh;
+  grid-template-columns: 100vw;
 `
