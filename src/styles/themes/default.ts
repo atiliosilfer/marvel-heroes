@@ -2,9 +2,11 @@ export const defaultTheme = {
   white: '#FFF',
   black: '#000',
   divider: '#EBEFF2',
+  background: '#C3C3C3',
 
   'blue-800': '#00113D',
   'blue-600': '#213770',
+  'blue-500': '#293D71',
   'blue-200': '#747D94',
 
   'orange-500': '#F21A05',

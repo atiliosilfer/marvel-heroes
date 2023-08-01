@@ -11,5 +11,10 @@ export const CustomInputContainer = styled.div`
   input {
     border: none;
     box-shadow: none;
+    color: ${props => props.theme['blue-500']};
+  }
+
+  &:focus-within {
+    border: 0.7px solid ${props => props.theme['blue-500']};
   }
 `

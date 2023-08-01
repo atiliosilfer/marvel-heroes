@@ -17,7 +17,7 @@ export function LoginForm({ handleRecoverPassword }: LoginFormProps) {
 
       <CustomInput 
         type="email" 
-        placeholder="Informe sua e-mail"
+        placeholder="Informe seu e-mail"
         required 
         icon={emailIcon}
       />
