@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const MenuContainer = styled.nav`
   height: 100%;
@@ -7,11 +7,22 @@ export const MenuContainer = styled.nav`
 `
 
 export const Divider = styled.hr`
-  margin: 24px 0px;
-  border-color: ${(props) => props.theme.divider};
-  height: 1px;
+  border: solid 1px ${(props) => props.theme.divider};
 `
 
 export const MenuItem = styled.div`
-  padding: 24px 20px;
+  padding: 15px 20px;
+
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    font-size: 0.813rem;
+    color: ${(props) => props.theme.black};
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.39px;
+  }
 `

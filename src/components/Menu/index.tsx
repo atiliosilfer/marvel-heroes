@@ -1,5 +1,9 @@
 import { Divider, MenuContainer, MenuItem } from './styles'
 import Logo from '../../assets/black-logo.svg'
+import homeIcon from '../../assets/icons/homeIcon.svg'
+import perfilIcon from '../../assets/icons/perfilIcon.svg'
+import exitIcon from '../../assets/icons/exitIcon.svg'
+
 import { NavLink } from 'react-router-dom'
 
 export function Menu() {
@@ -8,28 +12,30 @@ export function Menu() {
       <MenuItem>
         <img src={Logo} alt="" />
       </MenuItem>
-      
-      <Divider/>
+
+      <Divider />
 
       <MenuItem>
         <NavLink to="home">
-          home
+          <img src={homeIcon} alt="" />
+          <span>Home</span>
         </NavLink>
       </MenuItem>
       <MenuItem>
         <NavLink to="perfil">
-          perfil
+          <img src={perfilIcon} alt="" />
+          <span>Perfil</span>
         </NavLink>
       </MenuItem>
 
-      <Divider/>
+      <Divider />
 
       <MenuItem>
         <NavLink to="/">
-          sair
+          <img src={exitIcon} alt="" />
+          Sair
         </NavLink>
       </MenuItem>
-
     </MenuContainer>
   )
 }

@@ -1,3 +1,5 @@
-export function Home () {
-  return <div>Home</div>
+import { HomeContainer } from './styles'
+
+export function Home() {
+  return <HomeContainer>Home</HomeContainer>
 }

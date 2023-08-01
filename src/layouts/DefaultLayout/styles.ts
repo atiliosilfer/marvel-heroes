@@ -8,6 +8,10 @@ export const LayoutContainer = styled.div`
 
 export const ContentContainer = styled.div`
   display: grid;
-  grid-template-rows: 60px auto;
-  grid-template-columns: 100vw;
+  grid-template-rows: 63px auto;
+  grid-template-columns: 100vw - 63px;
+`
+
+export const OutletContainer = styled.div`
+  padding: 19px 36px;
 `

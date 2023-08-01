@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const CustomInputContainer = styled.div`
   display: flex;
@@ -6,15 +6,15 @@ export const CustomInputContainer = styled.div`
   align-items: center;
   padding: 20px 15px;
   border-radius: 10px;
-  border: 0.7px solid ${props => props.theme['gray-400']};
+  border: 0.7px solid ${(props) => props.theme['gray-400']};
 
   input {
     border: none;
     box-shadow: none;
-    color: ${props => props.theme['blue-500']};
+    color: ${(props) => props.theme['blue-500']};
   }
 
   &:focus-within {
-    border: 0.7px solid ${props => props.theme['blue-500']};
+    border: 0.7px solid ${(props) => props.theme['blue-500']};
   }
 `

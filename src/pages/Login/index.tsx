@@ -1,15 +1,15 @@
-import { FormsContainer, LoginContainer, LogoContainer } from "./styles";
+import { FormsContainer, LoginContainer, LogoContainer } from './styles'
 import Logo from '../../assets/white-logo.svg'
 import BuildingImage from '../../assets/images/building.png'
-import { LoginForm } from "./components/LoginForm";
-import { useState } from "react";
-import { RecoverPassword } from "./components/RecoverPassword";
+import { LoginForm } from './components/LoginForm'
+import { useState } from 'react'
+import { RecoverPassword } from './components/RecoverPassword'
 
-export function Login () {
+export function Login() {
   const [isRecoverPassword, setIsRecoverPassword] = useState(false)
-  
-  function handleRecoverPassword () {
-    setIsRecoverPassword(true);
+
+  function handleRecoverPassword() {
+    setIsRecoverPassword(true)
   }
 
   return (
@@ -23,11 +23,12 @@ export function Login () {
       </div>
 
       <FormsContainer>
-        {
-          isRecoverPassword ? <RecoverPassword/> : <LoginForm handleRecoverPassword={handleRecoverPassword} /> 
-        }
+        {isRecoverPassword ? (
+          <RecoverPassword />
+        ) : (
+          <LoginForm handleRecoverPassword={handleRecoverPassword} />
+        )}
       </FormsContainer>
-
     </LoginContainer>
   )
 }

@@ -1,15 +1,15 @@
-import { InputHTMLAttributes } from "react";
-import { CustomInputContainer } from "./styles";
+import { InputHTMLAttributes } from 'react'
+import { CustomInputContainer } from './styles'
 
 interface CustomInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  icon: string;
+  icon: string
 }
 
 export function CustomInput({ icon, ...props }: CustomInputProps) {
   return (
     <CustomInputContainer>
       <input {...props} />
-      <img src={icon} />
+      <img src={icon} alt="" />
     </CustomInputContainer>
   )
 }
