@@ -8,24 +8,12 @@ export const HomeContainer = styled.div`
   gap: 10px;
 `
 
-export const HeroContainer = styled.div`
-  width: 258px;
-  height: 150px;
-  background-color: ${(props) => props.theme['gray-100']};
-  border-radius: 15px;
-  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.06);
-`
-
-export const HeroContainerBigger = styled(HeroContainer)`
-  width: 526px;
-  grid-column: span 2;
-`
-
 export const PaginateContainer = styled.div`
   display: flex;
   justify-content: center;
   grid-column: span 4;
 `
+
 export const ReactPaginateCustom = styled(ReactPaginate)`
   display: flex;
   flex-direction: row;
