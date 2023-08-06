@@ -17,4 +17,8 @@ export const HeaderContainer = styled.header`
     font-weight: 500;
     letter-spacing: -0.36px;
   }
+
+  input:focus-visible {
+    outline: none;
+  }
 `

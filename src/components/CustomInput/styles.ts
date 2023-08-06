@@ -17,4 +17,8 @@ export const CustomInputContainer = styled.div`
   &:focus-within {
     border: 0.7px solid ${(props) => props.theme['blue-500']};
   }
+
+  input:focus-visible {
+    outline: none;
+  }
 `
