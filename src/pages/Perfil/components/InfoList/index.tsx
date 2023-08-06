@@ -1,14 +1,15 @@
+import { comicInfoItem } from '../../../Home'
 import { ListContainer } from './styles'
 
 interface InfoListProps {
-  infoList: string[]
+  infoList: comicInfoItem[]
 }
 
 export function InfoList({ infoList }: InfoListProps) {
   return (
     <ListContainer>
       {infoList.map((item) => (
-        <li key={item}>{item}</li>
+        <li key={item.name}>{item.name}</li>
       ))}
     </ListContainer>
   )

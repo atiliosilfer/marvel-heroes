@@ -24,6 +24,25 @@ export const TabsTrigger = styled(Tabs.Trigger)`
   }
 `
 
+export const Title = styled.h1`
+  font-size: 1.5rem;
+  color: ${(props) => props.theme['blue-600']};
+  font-weight: 700;
+  letter-spacing: -0.72px;
+
+  span {
+    color: ${(props) => props.theme['orange-500']};
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  span:last-child {
+    font-size: 1.5rem;
+    color: ${(props) => props.theme['gray-500']};
+    font-weight: 300;
+  }
+`
+
 export const TabsList = styled(Tabs.List)`
   margin-bottom: 27px;
 `

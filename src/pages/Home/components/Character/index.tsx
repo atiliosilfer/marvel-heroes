@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { CharacterType } from '../..'
 import { HeroContainer } from './styles'
 
@@ -6,10 +7,14 @@ interface CharacterProps {
 }
 
 export function Character({ character }: CharacterProps) {
-  console.log(character.thumbnail)
+  const navigate = useNavigate()
+
+  function handleClickCharacter() {
+    navigate(`/perfil/${character.id}`)
+  }
 
   return (
-    <HeroContainer>
+    <HeroContainer onClick={handleClickCharacter}>
       <div>
         <img
           src={`${character.thumbnail.path}.${character.thumbnail.extension}`}

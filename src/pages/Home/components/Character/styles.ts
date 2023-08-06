@@ -1,17 +1,18 @@
 import styled from 'styled-components'
 
-export const HeroContainer = styled.div`
+export const HeroContainer = styled.button`
   display: grid;
   grid-template-columns: 83px 140px;
   gap: 10px;
   height: 150px;
+  border: none;
 
   background-color: ${(props) => props.theme['gray-100']};
   border-radius: 15px;
-  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.06);
   padding: 14px 10px;
 
   text-overflow: ellipsis;
+  text-align: start;
 
   h2 {
     white-space: nowrap;
@@ -39,6 +40,12 @@ export const HeroContainer = styled.div`
     height: 119px;
 
     border-radius: 15px;
+  }
+
+  &:hover {
+    box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
   }
 `
 

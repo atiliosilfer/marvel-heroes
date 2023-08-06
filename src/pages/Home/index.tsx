@@ -5,6 +5,10 @@ import { useEffect, useState } from 'react'
 import { GetCharacters } from '../../service/marvelAPI'
 import { Character } from './components/Character'
 
+export interface comicInfoItem {
+  name: string
+}
+
 export type CharacterType = {
   id: number
   name: string
@@ -12,6 +16,18 @@ export type CharacterType = {
   thumbnail: {
     path: string
     extension: string
+  }
+  comics: {
+    items: comicInfoItem[]
+  }
+  series: {
+    items: comicInfoItem[]
+  }
+  stories: {
+    items: comicInfoItem[]
+  }
+  events: {
+    items: comicInfoItem[]
   }
 }
 
