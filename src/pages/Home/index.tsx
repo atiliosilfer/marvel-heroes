@@ -9,14 +9,16 @@ export interface comicInfoItem {
   name: string
 }
 
+export type Thumbnail = {
+  path: string
+  extension: string
+}
+
 export type CharacterType = {
   id: number
   name: string
   description: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
+  thumbnail: Thumbnail
   comics: {
     items: comicInfoItem[]
   }
@@ -45,10 +47,6 @@ export function Home() {
 
   const handlePageClick = (event: { selected: number }) => {
     const newOffset = (event.selected * 10) % totalCharacters
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`,
-    )
-
     setItemOffset(newOffset)
   }
 

@@ -13,8 +13,11 @@ export const defaultTheme = {
   'orange-400': '#F43724',
 
   'gray-background': '#F5F6F8',
+  'gray-50': '#F9FAFB',
   'gray-100': '#EAECF0',
+  'gray-300': '#D0D5DD',
   'gray-400': '#B7B7B7',
   'gray-500': '#777',
   'gray-600': '#667085',
+  'gray-900': '#101828',
 }

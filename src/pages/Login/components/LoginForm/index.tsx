@@ -4,14 +4,19 @@ import recoverPasswordIcon from '../../../../assets/icons/recoverPasswordIcon.sv
 import emailIcon from '../../../../assets/icons/emailIcon.svg'
 import watchPasswordIcon from '../../../../assets/icons/watchPasswordIcon.svg'
 import { CustomInput } from '../../../../components/CustomInput'
-import { useNavigate } from 'react-router-dom'
 
 interface LoginFormProps {
   handleRecoverPassword: () => void
+  loginSuccess: () => void
 }
 
-export function LoginForm({ handleRecoverPassword }: LoginFormProps) {
-  const navigate = useNavigate()
+export function LoginForm({
+  handleRecoverPassword,
+  loginSuccess,
+}: LoginFormProps) {
+  function handleLogin() {
+    loginSuccess()
+  }
 
   return (
     <LoginFormContainer>
@@ -34,7 +39,7 @@ export function LoginForm({ handleRecoverPassword }: LoginFormProps) {
         icon={watchPasswordIcon}
       />
 
-      <button onClick={() => navigate('/Home')}>
+      <button onClick={handleLogin}>
         entrar
         <img src={loginIcon} alt="" />
       </button>
