@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SelectAgentContainer = styled.div`
+export const SelectCharacterContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 380px;

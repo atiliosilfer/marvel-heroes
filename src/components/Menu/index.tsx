@@ -6,9 +6,10 @@ import exitIcon from '../../assets/icons/exitIcon.svg'
 import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { MarvelHeroContext } from '../../context/MarvelHeroContext'
+import { logout } from '../../service/api'
 
 export function Menu() {
-  const { selectedAgent } = useContext(MarvelHeroContext)
+  const { selectedCharacter } = useContext(MarvelHeroContext)
 
   return (
     <MenuContainer>
@@ -25,7 +26,7 @@ export function Menu() {
         </NavLink>
       </MenuItem>
       <MenuItem>
-        <NavLink to={`perfil/${selectedAgent}`}>
+        <NavLink to={`perfil/${selectedCharacter}`}>
           <img src={perfilIcon} alt="" />
           <span>Perfil</span>
         </NavLink>
@@ -34,7 +35,7 @@ export function Menu() {
       <Divider />
 
       <MenuItem>
-        <NavLink to="/">
+        <NavLink to="/" onClick={logout}>
           <img src={exitIcon} alt="" />
           <span>Sair</span>
         </NavLink>

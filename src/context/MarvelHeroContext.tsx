@@ -43,10 +43,8 @@ interface MarvelHeroContextType {
   characters: CharacterType[]
   updateCharacterList: (itemOffset: number, name?: string) => void
   totalCharacters: number
-  selectedAgent: number
-  userToken: string
-  changeSelectedAgente: (id: number) => void
-  changeUserToken: (token: string) => void
+  selectedCharacter: number
+  changeSelectedCharacter: (id: number) => void
 }
 
 export const MarvelHeroContext = createContext({} as MarvelHeroContextType)
@@ -56,28 +54,23 @@ export function MarvelHeroProvider({ children }: MarvelHeroProviderProps) {
     '@marvel-heroes:context-state-1.0.0',
   )
 
-  const [selectedAgent, setSelectedAgent] = useState(
-    storedStateAsJSON ? JSON.parse(storedStateAsJSON).selectedAgent : 0,
-  )
-  const [userToken, setUserToken] = useState(
-    storedStateAsJSON ? JSON.parse(storedStateAsJSON).userToken : '',
+  const [selectedCharacter, setSelectedCharacter] = useState(
+    storedStateAsJSON ? JSON.parse(storedStateAsJSON).selectedCharacter : 0,
   )
 
   const [characters, setCharacters] = useState<CharacterType[]>([])
   const [totalCharacters, setTotalCharacters] = useState(0)
 
   useEffect(() => {
-    const stateJSON = JSON.stringify({ selectedAgent, userToken })
+    const stateJSON = JSON.stringify({
+      selectedCharacter,
+    })
 
     localStorage.setItem('@marvel-heroes:context-state-1.0.0', stateJSON)
-  }, [selectedAgent, userToken])
+  }, [selectedCharacter])
 
-  const changeSelectedAgente = (id: number) => {
-    setSelectedAgent(id)
-  }
-
-  const changeUserToken = (token: string) => {
-    setUserToken(token)
+  const changeSelectedCharacter = (id: number) => {
+    setSelectedCharacter(id)
   }
 
   const updateCharacterList = useCallback(
@@ -96,10 +89,8 @@ export function MarvelHeroProvider({ children }: MarvelHeroProviderProps) {
         characters,
         updateCharacterList,
         totalCharacters,
-        selectedAgent,
-        userToken,
-        changeSelectedAgente,
-        changeUserToken,
+        selectedCharacter,
+        changeSelectedCharacter,
       }}
     >
       {children}

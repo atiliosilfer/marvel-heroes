@@ -9,7 +9,7 @@ import BuildingImage from '../../assets/images/building.png'
 import { LoginForm } from './components/LoginForm'
 import { useState } from 'react'
 import { RecoverPassword } from './components/RecoverPassword'
-import { SelectAgent } from './components/SelectAgent'
+import { SelectCharacter } from './components/SelectCharacter'
 
 export function Login() {
   const [isRecoverPassword, setIsRecoverPassword] = useState(false)
@@ -34,7 +34,7 @@ export function Login() {
       </div>
 
       {logged ? (
-        <SelectAgent />
+        <SelectCharacter />
       ) : (
         <FormsContainer>
           {isRecoverPassword ? (

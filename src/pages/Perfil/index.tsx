@@ -13,13 +13,13 @@ import {
 export function Perfil() {
   const { id } = useParams()
   const [character, setCharacter] = useState<CharacterType>()
-  const { selectedAgent } = useContext(MarvelHeroContext)
+  const { selectedCharacter } = useContext(MarvelHeroContext)
 
   useEffect(() => {
-    getCharacter(Number(id) || selectedAgent).then((response) => {
+    getCharacter(Number(id) || selectedCharacter).then((response) => {
       setCharacter(response.data.data.results[0] as CharacterType)
     })
-  }, [id, selectedAgent])
+  }, [id, selectedCharacter])
 
   return (
     <>

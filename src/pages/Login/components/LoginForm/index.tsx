@@ -4,7 +4,8 @@ import recoverPasswordIcon from '../../../../assets/icons/recoverPasswordIcon.sv
 import emailIcon from '../../../../assets/icons/emailIcon.svg'
 import watchPasswordIcon from '../../../../assets/icons/watchPasswordIcon.svg'
 import { CustomInput } from '../../../../components/CustomInput'
-import { FormEvent } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
+import { LoginFormData, login } from '../../../../service/api'
 
 interface LoginFormProps {
   handleRecoverPassword: () => void
@@ -15,9 +16,24 @@ export function LoginForm({
   handleRecoverPassword,
   loginSuccess,
 }: LoginFormProps) {
+  const [loginData, setLoginData] = useState<LoginFormData>({} as LoginFormData)
+
   function handleLogin(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    login(loginData)
     loginSuccess()
+  }
+
+  function handleEmailChange(event: ChangeEvent<HTMLInputElement>) {
+    setLoginData((state) => {
+      return { ...state, email: event.target.value }
+    })
+  }
+
+  function handlePasswordChange(event: ChangeEvent<HTMLInputElement>) {
+    setLoginData((state) => {
+      return { ...state, password: event.target.value }
+    })
   }
 
   return (
@@ -32,6 +48,7 @@ export function LoginForm({
         placeholder="Informe seu e-mail"
         required
         name="email"
+        onChange={handleEmailChange}
         icon={emailIcon}
       />
 
@@ -40,6 +57,7 @@ export function LoginForm({
         placeholder="Informe sua senha"
         required
         name="password"
+        onChange={handlePasswordChange}
         icon={watchPasswordIcon}
       />
 
