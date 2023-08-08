@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useCallback, useState } from 'react'
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 import { GetCharacters } from '../service/marvelAPI'
 
 interface MarvelHeroProviderProps {
@@ -46,10 +52,25 @@ interface MarvelHeroContextType {
 export const MarvelHeroContext = createContext({} as MarvelHeroContextType)
 
 export function MarvelHeroProvider({ children }: MarvelHeroProviderProps) {
-  const [selectedAgent, setSelectedAgent] = useState(0)
-  const [userToken, setUserToken] = useState('')
+  const storedStateAsJSON = localStorage.getItem(
+    '@marvel-heroes:context-state-1.0.0',
+  )
+
+  const [selectedAgent, setSelectedAgent] = useState(
+    storedStateAsJSON ? JSON.parse(storedStateAsJSON).selectedAgent : 0,
+  )
+  const [userToken, setUserToken] = useState(
+    storedStateAsJSON ? JSON.parse(storedStateAsJSON).userToken : '',
+  )
+
   const [characters, setCharacters] = useState<CharacterType[]>([])
   const [totalCharacters, setTotalCharacters] = useState(0)
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify({ selectedAgent, userToken })
+
+    localStorage.setItem('@marvel-heroes:context-state-1.0.0', stateJSON)
+  }, [selectedAgent, userToken])
 
   const changeSelectedAgente = (id: number) => {
     setSelectedAgent(id)
