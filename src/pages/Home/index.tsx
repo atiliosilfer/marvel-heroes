@@ -73,7 +73,7 @@ export function Home() {
                 <img src={ArrowRightIcon} alt=""></img>
               </>
             }
-            pageCount={10}
+            pageCount={totalCharacters}
             onPageChange={handlePageClick}
           />
         </PaginateContainer>
