@@ -36,7 +36,7 @@ export function Menu() {
       <MenuItem>
         <NavLink to="/">
           <img src={exitIcon} alt="" />
-          Sair
+          <span>Sair</span>
         </NavLink>
       </MenuItem>
     </MenuContainer>
