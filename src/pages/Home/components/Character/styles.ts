@@ -23,7 +23,6 @@ export const HeroContainer = styled.button`
     margin-bottom: 10px;
 
     text-overflow: ellipsis;
-    overflow: hidden;
     white-space: nowrap;
     max-width: fit-content;
   }
@@ -33,7 +32,6 @@ export const HeroContainer = styled.button`
     font-size: 0.75rem;
 
     text-overflow: ellipsis;
-    overflow: hidden;
     max-height: 96px;
   }
 

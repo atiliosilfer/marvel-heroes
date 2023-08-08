@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate'
 
 export const HomeContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 10px;
 
@@ -11,7 +11,7 @@ export const HomeContainer = styled.div`
     grid-column: span 2;
   }
 
-  @media (max-width: 1391px) {
+  @media (max-width: 1190px) {
     display: flex;
     flex-direction: column;
   }
