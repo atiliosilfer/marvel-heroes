@@ -3,15 +3,24 @@ import ReactPaginate from 'react-paginate'
 
 export const HomeContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 258px);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(3, 1fr);
   gap: 10px;
+
+  > :nth-last-child(-n + 2) {
+    grid-column: span 2;
+  }
+
+  @media (max-width: 1391px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const PaginateContainer = styled.div`
   display: flex;
   justify-content: center;
-  grid-column: span 4;
+  margin-top: 10px;
 `
 
 export const ReactPaginateCustom = styled(ReactPaginate)`

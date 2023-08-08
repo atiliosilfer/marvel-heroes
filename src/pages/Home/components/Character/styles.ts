@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const HeroContainer = styled.button`
   display: grid;
-  grid-template-columns: 83px 140px;
+  grid-template-columns: 83px auto;
   gap: 10px;
   height: 150px;
   border: none;
@@ -13,26 +13,28 @@ export const HeroContainer = styled.button`
 
   text-overflow: ellipsis;
   text-align: start;
+  overflow: hidden;
 
   h2 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
     color: ${(props) => props.theme.black};
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: -0.48px;
     margin-bottom: 10px;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: fit-content;
   }
 
   p {
     color: ${(props) => props.theme.black};
     font-size: 0.75rem;
-    height: 96px;
-    white-space: normal;
-    overflow: hidden;
+
     text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 96px;
   }
 
   img {
@@ -47,9 +49,4 @@ export const HeroContainer = styled.button`
     cursor: pointer;
     transition: box-shadow 0.2s;
   }
-`
-
-export const HeroContainerBigger = styled(HeroContainer)`
-  width: 526px;
-  grid-column: span 2;
 `

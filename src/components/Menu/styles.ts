@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 export const MenuContainer = styled.nav`
-  height: 100%;
+  height: auto;
+  min-height: 100vh;
   width: 256px;
   transition: width 0.3s linear;
 
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
-  @media (max-width: 745px) {
+  @media (max-width: 933px) {
     width: 57px;
 
     transition: width 0.3s linear;

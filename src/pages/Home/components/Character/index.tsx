@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import { CharacterType } from '../..'
 import { HeroContainer } from './styles'
+import { CharacterType } from '../../../../context/MarvelHeroContext'
 
 interface CharacterProps {
   character: CharacterType

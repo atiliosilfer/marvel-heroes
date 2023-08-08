@@ -27,26 +27,26 @@ export function Home() {
             <Character character={character} key={character.id}></Character>
           )
         })}
-
-        <PaginateContainer>
-          <ReactPaginateCustom
-            previousLabel={
-              <>
-                <img src={ArrowLeftIcon} alt=""></img>
-                <span>Anterior</span>
-              </>
-            }
-            nextLabel={
-              <>
-                <span>Próxima</span>
-                <img src={ArrowRightIcon} alt=""></img>
-              </>
-            }
-            pageCount={totalCharacters}
-            onPageChange={handlePageClick}
-          />
-        </PaginateContainer>
       </HomeContainer>
+      <PaginateContainer>
+        <ReactPaginateCustom
+          previousLabel={
+            <>
+              <img src={ArrowLeftIcon} alt=""></img>
+              <span>Anterior</span>
+            </>
+          }
+          nextLabel={
+            <>
+              <span>Próxima</span>
+              <img src={ArrowRightIcon} alt=""></img>
+            </>
+          }
+          pageCount={totalCharacters}
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+        />
+      </PaginateContainer>
     </>
   )
 }
