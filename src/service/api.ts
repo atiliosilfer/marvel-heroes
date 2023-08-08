@@ -23,7 +23,12 @@ export async function login(dataForm: LoginFormData) {
 
 export async function logout() {
   cookie.remove('token', { path: '/' })
-  return true
+  localStorage.setItem(
+    '@marvel-heroes:context-state-1.0.0',
+    JSON.stringify({
+      selectedCharacter: 0,
+    }),
+  )
 }
 
 export async function getCharacters(offset: number = 0, name?: string) {

@@ -38,6 +38,7 @@ export function CustomSelect({
           <Select.Icon>
             <PersonIcon />
           </Select.Icon>
+
           <Select.Value placeholder="Selecione um agente" />
         </div>
 

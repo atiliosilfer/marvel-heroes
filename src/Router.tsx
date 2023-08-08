@@ -6,19 +6,26 @@ import { DefaultLayout } from './layouts/DefaultLayout'
 import cookie from 'react-cookies'
 import * as jose from 'jose'
 import { useEffect } from 'react'
+import { logout } from './service/api'
 
 export function Router() {
   const token = cookie.load('token')
   const navigate = useNavigate()
 
   useEffect(() => {
+    function userLogoff() {
+      logout()
+      navigate('/')
+    }
+
     if (token === undefined) {
-      return navigate('/')
+      userLogoff()
+      return
     }
 
     jose
       .jwtVerify(token, new TextEncoder().encode('secret_mock'))
-      .catch(() => navigate('/'))
+      .catch(() => userLogoff())
   }, [navigate, token])
 
   return (
