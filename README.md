@@ -118,4 +118,6 @@ bem como seu nome e imagem;<br>
 
 - Importante: para funcionamento da API da Marvel, rodar a aplicação no localhost/3000 e não diretamente com o IP ex (http://127.0.0.1:3000/)
 
+- O mock JWT tem um tempo de expiração de 0.1 horas, ou seja 6 minutos
+
 ---
