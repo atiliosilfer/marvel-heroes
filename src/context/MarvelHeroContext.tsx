@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from 'react'
-import { GetCharacters } from '../service/marvelAPI'
+import { getCharacters } from '../service/api'
 
 interface MarvelHeroProviderProps {
   children: ReactNode
@@ -82,7 +82,7 @@ export function MarvelHeroProvider({ children }: MarvelHeroProviderProps) {
 
   const updateCharacterList = useCallback(
     (itemOffset: number, name?: string) => {
-      GetCharacters(itemOffset, name).then((response) => {
+      getCharacters(itemOffset, name).then((response) => {
         setCharacters(response.data.data.results as CharacterType[])
         setTotalCharacters(response.data.data.total)
       })

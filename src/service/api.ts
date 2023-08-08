@@ -1,6 +1,6 @@
 import { api } from '../lib/axios'
 
-export async function GetCharacters(offset: number = 0, name?: string) {
+export async function getCharacters(offset: number = 0, name?: string) {
   return await api.get('characters', {
     params: {
       limit: 10,
@@ -10,7 +10,7 @@ export async function GetCharacters(offset: number = 0, name?: string) {
   })
 }
 
-export async function GetCharacter(id: number) {
+export async function getCharacter(id: number) {
   return await api.get('characters', {
     params: {
       id,

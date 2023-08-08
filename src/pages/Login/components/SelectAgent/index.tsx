@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import { CustomSelect, SelectItems } from '../../../../components/CustomSelect'
-import { MarvelHeroContext } from '../../../../context/MarvelHeroContext'
-import { GetCharacters } from '../../../../service/marvelAPI'
-import { CharacterType } from '../../../Home'
+import {
+  CharacterType,
+  MarvelHeroContext,
+} from '../../../../context/MarvelHeroContext'
+import { getCharacters } from '../../../../service/api'
 import { EnterButton, SelectAgentContainer } from './style'
 import { useEffect, useState, useContext } from 'react'
 
@@ -13,7 +15,7 @@ export function SelectAgent() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    GetCharacters(itemOffset).then((response) => {
+    getCharacters(itemOffset).then((response) => {
       const responseToSelectItem: SelectItems[] =
         response.data.data.results.map((item: CharacterType) => {
           return {

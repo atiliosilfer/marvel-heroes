@@ -4,9 +4,11 @@ import { Overview } from './components/Overview'
 import { InfoList } from './components/InfoList'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState, useContext } from 'react'
-import { GetCharacter } from '../../service/marvelAPI'
-import { CharacterType } from '../Home'
-import { MarvelHeroContext } from '../../context/MarvelHeroContext'
+import { getCharacter } from '../../service/api'
+import {
+  CharacterType,
+  MarvelHeroContext,
+} from '../../context/MarvelHeroContext'
 
 export function Perfil() {
   const { id } = useParams()
@@ -14,7 +16,7 @@ export function Perfil() {
   const { selectedAgent } = useContext(MarvelHeroContext)
 
   useEffect(() => {
-    GetCharacter(Number(id) || selectedAgent).then((response) => {
+    getCharacter(Number(id) || selectedAgent).then((response) => {
       setCharacter(response.data.data.results[0] as CharacterType)
     })
   }, [id, selectedAgent])
