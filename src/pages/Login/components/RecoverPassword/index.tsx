@@ -1,21 +1,27 @@
 import { RecoverPasswordFormContainer } from './styles'
 import emailIcon from '../../../../assets/icons/emailIcon.svg'
 import { CustomInput } from '../../../../components/CustomInput'
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export function RecoverPassword() {
   const [linkSent, setLinkSent] = useState(false)
   const navigate = useNavigate()
 
-  function handleSendLink() {
+  function handleSendLink(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
     setLinkSent(true)
+  }
+
+  function handleBackLogin(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    navigate(0)
   }
 
   return (
     <>
       {!linkSent ? (
-        <RecoverPasswordFormContainer>
+        <RecoverPasswordFormContainer onSubmit={handleSendLink}>
           <h1>
             Recuperar senha<span>.</span>
           </h1>
@@ -31,12 +37,10 @@ export function RecoverPassword() {
             icon={emailIcon}
           />
 
-          <button type="submit" onClick={handleSendLink}>
-            enviar link
-          </button>
+          <button type="submit">enviar link</button>
         </RecoverPasswordFormContainer>
       ) : (
-        <RecoverPasswordFormContainer>
+        <RecoverPasswordFormContainer onSubmit={handleBackLogin}>
           <h1>
             Tudo certo<span>{';)'}</span>
           </h1>
@@ -45,7 +49,7 @@ export function RecoverPassword() {
             sua senha.
           </h2>
 
-          <button onClick={() => navigate(0)}>voltar para o login</button>
+          <button type="submit">voltar para o login</button>
         </RecoverPasswordFormContainer>
       )}
     </>

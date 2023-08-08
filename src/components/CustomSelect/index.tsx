@@ -6,13 +6,13 @@ import {
   PersonIcon,
 } from '@radix-ui/react-icons'
 import { forwardRef } from 'react'
-import { Thumbnail } from '../../pages/Home'
 import {
   LoadMoreButton,
   SelectContent,
   SelectItemContainer,
   SelectTrigger,
 } from './style'
+import { Thumbnail } from '../../context/MarvelHeroContext'
 
 export type SelectItems = {
   id: number

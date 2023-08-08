@@ -4,6 +4,7 @@ import recoverPasswordIcon from '../../../../assets/icons/recoverPasswordIcon.sv
 import emailIcon from '../../../../assets/icons/emailIcon.svg'
 import watchPasswordIcon from '../../../../assets/icons/watchPasswordIcon.svg'
 import { CustomInput } from '../../../../components/CustomInput'
+import { FormEvent } from 'react'
 
 interface LoginFormProps {
   handleRecoverPassword: () => void
@@ -14,12 +15,13 @@ export function LoginForm({
   handleRecoverPassword,
   loginSuccess,
 }: LoginFormProps) {
-  function handleLogin() {
+  function handleLogin(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
     loginSuccess()
   }
 
   return (
-    <LoginFormContainer>
+    <LoginFormContainer onSubmit={handleLogin}>
       <h1>
         Bem-vindo<span>.</span>
       </h1>
@@ -29,6 +31,7 @@ export function LoginForm({
         type="email"
         placeholder="Informe seu e-mail"
         required
+        name="email"
         icon={emailIcon}
       />
 
@@ -36,10 +39,11 @@ export function LoginForm({
         type="password"
         placeholder="Informe sua senha"
         required
+        name="password"
         icon={watchPasswordIcon}
       />
 
-      <button onClick={handleLogin}>
+      <button type="submit">
         entrar
         <img src={loginIcon} alt="" />
       </button>
