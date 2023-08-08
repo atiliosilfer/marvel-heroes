@@ -25,3 +25,9 @@ export const FormsContainer = styled.div`
   border-radius: 28px;
   background-color: ${(props) => props.theme.white};
 `
+
+export const ImageContainer = styled.img`
+  @media (max-width: 1210px) {
+    display: none !important;
+  }
+`

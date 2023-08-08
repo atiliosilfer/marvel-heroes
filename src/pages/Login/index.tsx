@@ -1,4 +1,9 @@
-import { FormsContainer, LoginContainer, LogoContainer } from './styles'
+import {
+  FormsContainer,
+  ImageContainer,
+  LoginContainer,
+  LogoContainer,
+} from './styles'
 import Logo from '../../assets/white-logo.svg'
 import BuildingImage from '../../assets/images/building.png'
 import { LoginForm } from './components/LoginForm'
@@ -25,7 +30,7 @@ export function Login() {
       </LogoContainer>
 
       <div>
-        <img src={BuildingImage} alt="" />
+        <ImageContainer src={BuildingImage} alt="" />
       </div>
 
       {logged ? (
