@@ -3,13 +3,16 @@ import { defaultTheme } from './styles/themes/default'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
 import { GlobalStyle } from './styles/global'
+import { MarvelHeroProvider } from './context/MarvelHeroContext'
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+      <MarvelHeroProvider>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </MarvelHeroProvider>
       <GlobalStyle />
     </ThemeProvider>
   )

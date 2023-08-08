@@ -1,17 +1,16 @@
+import { useNavigate } from 'react-router-dom'
 import { CustomSelect, SelectItems } from '../../../../components/CustomSelect'
+import { MarvelHeroContext } from '../../../../context/MarvelHeroContext'
 import { GetCharacters } from '../../../../service/marvelAPI'
 import { CharacterType } from '../../../Home'
 import { EnterButton, SelectAgentContainer } from './style'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 
-interface SelectAgentProps {
-  submitSelect: () => void
-}
-
-export function SelectAgent({ submitSelect }: SelectAgentProps) {
+export function SelectAgent() {
   const [itemOffset, setItemOffset] = useState(0)
   const [selectItems, setSelectItems] = useState<SelectItems[]>([])
-  const [selectedAgent, setSelectedAgent] = useState(0)
+  const { selectedAgent, changeSelectedAgente } = useContext(MarvelHeroContext)
+  const navigate = useNavigate()
 
   useEffect(() => {
     GetCharacters(itemOffset).then((response) => {
@@ -40,9 +39,12 @@ export function SelectAgent({ submitSelect }: SelectAgentProps) {
     setItemOffset((state) => state + 10)
   }
 
-  function handleSelectItem(id: string) {
-    setSelectedAgent(Number(id))
-    console.log(selectedAgent)
+  function handleSelectAgent(id: string) {
+    changeSelectedAgente(Number(id))
+  }
+
+  function handleEnter() {
+    navigate(`/perfil/${selectedAgent}`)
   }
 
   return (
@@ -56,10 +58,10 @@ export function SelectAgent({ submitSelect }: SelectAgentProps) {
       <CustomSelect
         items={selectItems}
         loadingMore={loadMoreAgents}
-        onSelect={handleSelectItem}
+        onSelect={handleSelectAgent}
       />
 
-      <EnterButton onClick={submitSelect}>Entrar</EnterButton>
+      <EnterButton onClick={handleEnter}>Entrar</EnterButton>
     </SelectAgentContainer>
   )
 }

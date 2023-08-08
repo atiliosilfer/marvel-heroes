@@ -3,10 +3,13 @@ import Logo from '../../assets/black-logo.svg'
 import homeIcon from '../../assets/icons/homeIcon.svg'
 import perfilIcon from '../../assets/icons/perfilIcon.svg'
 import exitIcon from '../../assets/icons/exitIcon.svg'
-
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { MarvelHeroContext } from '../../context/MarvelHeroContext'
 
 export function Menu() {
+  const { selectedAgent } = useContext(MarvelHeroContext)
+
   return (
     <MenuContainer>
       <MenuItem>
@@ -22,7 +25,7 @@ export function Menu() {
         </NavLink>
       </MenuItem>
       <MenuItem>
-        <NavLink to="perfil">
+        <NavLink to={`perfil/${selectedAgent}`}>
           <img src={perfilIcon} alt="" />
           <span>Perfil</span>
         </NavLink>

@@ -3,19 +3,21 @@ import { TabsList, TabsTrigger, Title } from './styles'
 import { Overview } from './components/Overview'
 import { InfoList } from './components/InfoList'
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { GetCharacter } from '../../service/marvelAPI'
 import { CharacterType } from '../Home'
+import { MarvelHeroContext } from '../../context/MarvelHeroContext'
 
 export function Perfil() {
   const { id } = useParams()
   const [character, setCharacter] = useState<CharacterType>()
+  const { selectedAgent } = useContext(MarvelHeroContext)
 
   useEffect(() => {
-    GetCharacter(Number(id) || 123).then((response) => {
+    GetCharacter(Number(id) || selectedAgent).then((response) => {
       setCharacter(response.data.data.results[0] as CharacterType)
     })
-  }, [id])
+  }, [id, selectedAgent])
 
   return (
     <>
